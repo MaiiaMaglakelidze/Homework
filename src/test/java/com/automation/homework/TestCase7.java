@@ -5,6 +5,7 @@ import com.automation.utilities.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -21,11 +22,18 @@ public class TestCase7 {
     @Test
     public void TestCase7(){
         driver.findElement(By.xpath("//a[@href=\"/upload\"]")).click();
-        driver.findElement(By.xpath("//input[@id=\"file-upload\"]")).sendKeys("\"C:\\Users\\mayam\\Desktop\\exceptions.PNG\"");
+        driver.findElement(By.xpath("//input[@id=\"file-upload\"]")).sendKeys("C:\\Users\\mayam\\Desktop\\exceptions.PNG");
         BrowserUtils.wait(3);
         WebElement uploadBtn = driver.findElement(By.xpath("//input[@id=\"file-submit\"]"));
         uploadBtn.click();
+        driver.findElement(By.id("uploaded-files")).isDisplayed();
 
+    }
+
+    @AfterMethod
+    public void teardown(){
+        BrowserUtils.wait(2);
+        driver.quit();
     }
 
 }
