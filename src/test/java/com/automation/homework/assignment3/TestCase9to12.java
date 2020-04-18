@@ -1,4 +1,4 @@
-package com.automation.homework;
+package com.automation.homework.assignment3;
 
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
